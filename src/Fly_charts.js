@@ -1,7 +1,7 @@
-import './App.css';
+import './Fly_charts.css';
 import React, { Component } from 'react'
 
-class App extends Component {
+class Fly_charts extends Component {
 
   constructor(props) {
     super(props);
@@ -36,7 +36,7 @@ class App extends Component {
       )
     } else {
       return (
-        <div className="App">
+        <div className="Fly_charts">
 
         <div className="container">
           <h1>Catalogo de voos</h1>
@@ -54,6 +54,9 @@ class App extends Component {
                 </div>
                 </div>
               ))}
+              
+
+
           </div>
         </div>
 
@@ -63,4 +66,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Fly_charts;
