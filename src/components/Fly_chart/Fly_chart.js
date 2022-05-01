@@ -75,7 +75,7 @@ class Fly_chart extends Component {
     }
 
   componentDidMount() {
-    fetch('https://atmosxplore-server.herokuapp.com' + this.state.flyNumber)
+    fetch('https://atmosxplore-server.herokuapp.com/flys/' + this.state.flyNumber)
       .then(res => res.json())
       .then(data => {
         var Temperature_Chart = this.state.Temperature_Chart
