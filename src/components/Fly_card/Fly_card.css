@@ -1,0 +1,17 @@
+.row {
+  margin: 15px;
+}
+
+.card-body{
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-flex{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.5)
+}

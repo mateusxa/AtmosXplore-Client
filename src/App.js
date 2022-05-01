@@ -1,18 +1,21 @@
 import './App.css';
 import React, { Component } from 'react'
+import Fly_card from './components/Fly_card/Fly_card'
+import Fly_chart from './components/Fly_chart/Fly_chart'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      hideChart: false,
       items: [],
       isLoaded: false
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/teste/number')
+    fetch('https://atmosxplore-server.herokuapp.com/flys/number')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -22,45 +25,32 @@ class App extends Component {
       })
   }
 
-  render (){
 
+  render (){
     var { isLoaded, items } = this.state;
 
     if(!isLoaded) {
       return (
-        <div class="d-flex">
-          <div class="spinner-border" style={{ 'width': '5rem', 'height': '5rem' }} role="status">
-            <span class="visually-hidden">Loading...</span>
+        <div className="d-flex">
+          <div className="spinner-border" style={{ 'width': '5rem', 'height': '5rem' }} role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       )
     } else {
       return (
-        <div className="App">
-
+      <div className="App">
         <div className="container">
-          <h1>Catalogo de voos</h1>
-          <div className="row">
-            
+              <h1>Catalogo de voos</h1>
               {items.map(item => (
-                <div className="col">
-                <div class="card">
-                  <div class="card-body">
-                    <h3>
-                      Voo: {item.Fly}
-                    </h3>
-                    <a href="#" class="btn btn-primary">Ver detalhes</a>
-                  </div>
-                </div>
-                </div>
+                <Fly_card flyNumber={item._id} />
               ))}
-          </div>
         </div>
-
-      </div>
-      )
-    }
+        </div>
+    )
+   }
   }
 }
+
 
 export default App;
